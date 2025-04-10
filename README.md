@@ -8,54 +8,53 @@ Insights and recommendations are provided on the following key areas:
 - **Client Retention & Churn Analysis** – Identify trends in churn rate and retention across demographic and geographic and engagement levels.
 - **Client Renewal & Growth Trends** – Assess renewal likelihood and industries contributing most to business growth.
 
-Targeted SQL queries regarding various kpi's can be found [here](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/tree/306f4b68cdca6801b40ec9547118b65d184d1947/sql).
+Targeted SQL queries regarding various kpi's can be found [here](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/tree/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/sql).
 
 ## Data Structure & Initial Checks
-ProPulse's database as seen below consists of three tables dim_products, dim_customers and fact_sales, with a total row count of 100,000 records.
+VelocityNet's database as seen below consists of two main tables churn_production and prod_service, with other two tables being transformed tables.
 
-![model_erd](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/306f4b68cdca6801b40ec9547118b65d184d1947/images/model_ERD.png)
+![model_erd](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/files/model_ERD.png)
 
-Prior to begining of analysis, a variety of checks were conducted for familiarization with the datasets.
+Prior to begining of analysis, a variety of checks were conducted for familiarization with the datasets. The SQL queries to inspect and perform quality checks can be found [here](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/sql/required_transformations.sql)
 
 ## Executive Summary
 
 ### Overview of Findings
-- The analysis is based on a dataset of 100,000 records, providing insights into  ProPulse's various product line, customer segments, understanding their impact on sales and revenue over 4 years. This information was visualized into two tables of Customer report and Product report, revealed key insights into how sales trends across the range, what products are top performers, and patterns of recency over time. The analysis shows that Max profit year was 2013 where 1,63,44,878 number of products were sold with notable spikes during Q4 due to holidays and gifting seasons. There has also been a steady decline in performance post 2013.
-- Successful performing category is Bikes which sold whole 96% of our prodcuts line and holding 30% of total customer percent. ProPulse can benefit from expanding the other two product segments by adding more products lines to accessories and clothing, optimizing quality control, customer satisfaction to increase customer purchase value. Targeted growth in cost ranges of below 100 and 100-500, along with improvements to online payment capabilities (UPI), will strengthen ProPulse's market position and drive sustainable growth.
+- **Customer Base & Churn Rate**: VelocityNet has a total of 6,418 active customers, with 411 new joiners. The company recorded 1,732 churned customers, resulting in an overall churn rate of 27%. Notably, female customers account for 65% of total churn (1,111), indicating a need for improved customer engagement strategies among this segment.
+-  **Age Group Analysis**: The 50–70 age group exhibits the highest churn volume, with 558 customers lost and a churn rate of 26%. This age group is heavily subscribed to services like Internet, Phone, and Unlimited Data, suggesting dissatisfaction or lack of perceived value in bundled offerings or service reliability.
+- **Tenure & Contract Insights**: Among 2,087 long-term customers (tenure ≥ 24 months), 574 have churned, showing a churn rate of 28%—a concern even among loyal users. The most alarming churn pattern is observed under month-to-month contract types, which have a churn rate of 47%, cutting across all age segments and contributing to over 300+ churned users.
 
-![Year on Year aggregated image](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/306f4b68cdca6801b40ec9547118b65d184d1947/images/yoy-performance_analysis.png)
+![analysis dashboard](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/files/customer_churn_analyzed_dashboard.png)
 
 ## Insights Deep-Dive
 
-### Sales Trend Analysis
-- ProPulse's total sales 5 million+ with overall 10K customers per year.
-- Sales surged in 2013 due to dip in average price by 60%, returning to steep decline at 2014 whcih also affeted in average prices due reduction of VIP customers by 30%.
-- ProPulse shows peak sales in Prize rnges of Below 100 and 100-500 with about 30% and 25%, where Above 1000 sales to 15%.
+### Customer Base & Churn Rate Insights
+- VelocityNet’s customer base consists of 6,418 active customers, with 411 newly onboarded users in the latest reporting period, indicating consistent growth efforts. However, the company is also facing a high customer attrition rate, with 1,732 customers churned, resulting in an overall churn rate of 27%.
+- A deeper gender-based churn analysis reveals that female customers account for a disproportionately high share of churn—65% (1,111 churned). This imbalance suggests potential pain points in user experience, communication strategies, or value perception among female customers. This segment represents a critical area for customer retention strategy, requiring targeted engagement campaigns and potentially improved personalization in offerings and support.
 
-![change over time](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/306f4b68cdca6801b40ec9547118b65d184d1947/images/change_over_time.png)
+![female_cust_churn_analysis](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/files/female_cust_churn_analysis.png)
 
-### Product Level Performance
-- The VIP Customers of age group Above 50 has customer percent of 29%.
-- More purchases in Bikes category has almost 96% of product share.
-- Most sold two products being the Road-150 Red and Mountain-100 Black, Mountain-200 Black has 30% sold over total revenue and Average order revenue of 3300+.
+### Age Group Analysis
+- Customers in the 50–70 age group demonstrate the highest churn volume, with 558 users leaving, representing 26% of the churned population. This age segment heavily relies on essential telecom services, including Internet, Phone, and Unlimited Data.
+- In contrast, the month-to-month contract group exhibits the most alarming churn behavior, with a churn rate of 47%, cutting across various age groups. Over 300 customers churned under this contract type alone. The flexibility of short-term contracts, while attractive at the point of entry, often leads to lower customer commitment and higher exit likelihood, especially if no loyalty hooks or value upgrades are offered.
 
-![proportional analysis by category](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/306f4b68cdca6801b40ec9547118b65d184d1947/images/proportional_analysis_per_category.png)
+![age_group_analysis](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/files/age_group_churn_analysis.png)
 
-![proportional analysis by customers](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/306f4b68cdca6801b40ec9547118b65d184d1947/images/proportional_analysis_by_customers.png)
+### Tenure-Based & Contract-Type Insights
+- Interestingly, even among long-tenured customers (≥ 24 months)—typically a loyal and profitable segment—574 have churned, leading to a churn rate of 28%. This highlights potential breakdowns in long-term customer satisfaction, such as outdated plans, unaddressed complaints, or lack of incentives for continued loyalty.
+- Given that this segment is traditionally more stable and less likely to switch providers impulsively, the churn signals possible service dissatisfaction, lack of perceived value, or absence of loyalty reinforcement mechanisms.
+
+![tenure_group_analysis](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/files/tenure_group_churn_analysis.png)
 
 ## Recommendations
 
-### Maximizing Product Offerings:
-- **Expand High-Performing Item Types**: Increase item line variations in ProPulse other two product segments by adding more products lines to accessories and clothing to meet diverse customer needs by driving repeat purchases and solidifying market presence. Optimize inventory around peak-selling product categories during Q2 and Q4.
-- **Optimize Item Pack**: Optimize by bundle it with gift items, or offer as a promotional offers to increase average order value (AOV) and sales contribution.
-
-### Categorical Growth Strategies:
-- **Capitalize on Bike category Sales**: Continue allocating resources to Bike category types including New and Regular customers with regionalized marketing and product availability strategies tailored to customer preferences.
-
-### Customer Growth and Retention:
-- **Boost Repeat Purchases**: Target single-purchase customers with personalized re-engagement and converting the New customers to VIP by introduce tiered offers and rewards  within the Premium product category and loyalty program to incentivize frequent purchases and improve retention.
+- Enhance Customer Retention Programs for At-Risk Segments.
+- Introduce loyalty programs for short-tenure and month-to-month contract customers.
+- Offer bundled service discounts for younger customers who use streaming and internet services.
+- Improve digital payment experiences or incentivize auto-payment methods to reduce churn.
+- Launch personalized re-engagement marketing campaigns targeting high-risk churn profiles.
 
 ## General Info
-- Can access the Product Report table image [here](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/6eba1dc5e96ca8dd05e6879a437f7fdbbf9c31a5/images/product_report.png) and its targeted SQL queries [here](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/6eba1dc5e96ca8dd05e6879a437f7fdbbf9c31a5/sql/product_report.sql)
-- Can access the Customer Report table image [here](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/6eba1dc5e96ca8dd05e6879a437f7fdbbf9c31a5/images/customer_report.png) and its targeted SQL queries [here](https://github.com/rPrajwal18/ProPulse-sports-retail_company_analysis/blob/6eba1dc5e96ca8dd05e6879a437f7fdbbf9c31a5/sql/customer_report.sql)
+
+You can download and explore the Power BI (.pbix) file [here](https://github.com/rPrajwal18/VelocityNet_Customer-Churn-analysis/blob/6a205b4aa48d04bdf15b7d870955ab1e23c0f102/dashboard/Churn%20analysis%20dashboard.pbix) to interact with the full report and customize the analysis further based on your needs.
 
